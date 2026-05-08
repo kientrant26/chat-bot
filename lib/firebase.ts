@@ -5,7 +5,6 @@ import {
   getAuth,
   signInWithEmailAndPassword as signInWithEmailAndPwd,
   updateProfile,
-  type Auth,
 } from 'firebase/auth'
 
 const firebaseConfig = {

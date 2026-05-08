@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { GoogleIcon } from 'snackact-ui/icons'
 import logger from '@/utils/logger'
-import { PAGE_URL } from '@/constants/url'
 
 const OwlWatcher = dynamic(
   () => import('snackact-ui').then(mod => mod.OwlWatcher),
