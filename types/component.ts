@@ -3,8 +3,10 @@ import { ReactNode, HTMLAttributes, SVGProps } from 'react'
 /**
  * Base props that all components should extend from
  */
-export interface ComponentProps
-  extends Omit<HTMLAttributes<HTMLElement>, 'className'> {
+export interface ComponentProps extends Omit<
+  HTMLAttributes<HTMLElement>,
+  'className'
+> {
   /**
    * Additional CSS classes to apply to the component
    */

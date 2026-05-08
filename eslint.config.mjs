@@ -5,6 +5,9 @@ import prettier from 'eslint-plugin-prettier'
 import prettierConfig from 'eslint-config-prettier'
 
 const eslintConfig = defineConfig([
+  {
+    ignores: ['.next/**', 'out/**', 'build/**', 'next-env.d.ts'],
+  },
   ...nextVitals,
   ...nextTs,
   prettierConfig,
