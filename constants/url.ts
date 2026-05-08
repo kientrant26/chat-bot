@@ -6,6 +6,7 @@ export const PAGE_URL = {
   CHAT_BOT: '/chat-bot',
   QUIZ_MASTER: '/quiz-master',
   SCRUM_MASTER: '/quiz-master/scrum-master',
+  Error: '/error',
 }
 
 export const API_URL = {
