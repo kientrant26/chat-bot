@@ -28,22 +28,22 @@ npm install agentation -D
 Add the component at the root of your React app (e.g. `App.tsx` or `layout.tsx`). The `NODE_ENV` check ensures it only loads in development.
 
 ```tsx
-import { Agentation } from "agentation";
+import { Agentation } from 'agentation'
 
 function App() {
   return (
     <>
       <YourApp />
-      {process.env.NODE_ENV === "development" && (
+      {process.env.NODE_ENV === 'development' && (
         <Agentation
           endpoint="http://localhost:4747"
-          onSessionCreated={(sessionId) => {
-            console.log("Session started:", sessionId);
+          onSessionCreated={sessionId => {
+            console.log('Session started:', sessionId)
           }}
         />
       )}
     </>
-  );
+  )
 }
 ```
 
@@ -108,7 +108,7 @@ npm run dev
 - Open your app in the browser
 - The **Agentation toolbar** appears in the corner
 - Click any element on the page
-- Type your feedback (e.g. *"Change this button to blue"*, *"Text is overflowing on mobile"*)
+- Type your feedback (e.g. _"Change this button to blue"_, _"Text is overflowing on mobile"_)
 
 ### 3. Let the agent fix it
 
@@ -152,13 +152,13 @@ If you don't set an `endpoint`, annotations stay local in the browser. You can s
 
 ## Useful commands
 
-| Command | Description |
-|---|---|
-| `npx agentation-mcp doctor` | Check server health |
-| `npx agentation-mcp server` | Start MCP server manually |
-| `npx agentation-mcp init` | Interactive setup wizard for Claude Code |
-| `MCP: List Servers` | View all MCP servers in VSCode |
-| `MCP: Add Server` | Add a new MCP server via Command Palette |
+| Command                     | Description                              |
+| --------------------------- | ---------------------------------------- |
+| `npx agentation-mcp doctor` | Check server health                      |
+| `npx agentation-mcp server` | Start MCP server manually                |
+| `npx agentation-mcp init`   | Interactive setup wizard for Claude Code |
+| `MCP: List Servers`         | View all MCP servers in VSCode           |
+| `MCP: Add Server`           | Add a new MCP server via Command Palette |
 
 ---
 
