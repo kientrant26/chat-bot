@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { Agentation } from 'agentation'
 import AuthProvider from '@/context/AuthenProvider'
 import { ToastProvider } from '@/context/ToastProvider'
 import { SidebarProvider } from '@/context/SidebarProvider'
@@ -6,6 +7,7 @@ import { ToastContainer } from '@/components/ToastContainer'
 import NewRelicAI from '@/components/external-scripts/NewRelicAI'
 import Menu from '@/components/Menu'
 import MainContent from '@/components/MainContent'
+import { siteConfig } from '@/constants/siteConfig'
 
 import 'snackact-ui/css'
 import '@/styles/globals.css'
@@ -37,6 +39,7 @@ export default function RootLayout({
             </SidebarProvider>
           </ToastProvider>
         </AuthProvider>
+        {siteConfig.isDev && <Agentation endpoint="http://localhost:4747" />}
       </body>
     </html>
   )

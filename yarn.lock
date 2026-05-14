@@ -3042,6 +3042,21 @@ __metadata:
   languageName: node
   linkType: hard
 
+"agentation@npm:^3.0.2":
+  version: 3.0.2
+  resolution: "agentation@npm:3.0.2"
+  peerDependencies:
+    react: ">=18.0.0"
+    react-dom: ">=18.0.0"
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10c0/5d7070bba3318549fd502a03a1fa9bb09739d2a9075d5ca29f51348607e31910ba220fe678549c91568dddb59e4c05679957963977a79909515f197343f0f979
+  languageName: node
+  linkType: hard
+
 "ajv@npm:^6.14.0":
   version: 6.15.0
   resolution: "ajv@npm:6.15.0"
@@ -3517,6 +3532,7 @@ __metadata:
     "@types/node": "npm:^20"
     "@types/react": "npm:^19"
     "@types/react-dom": "npm:^19"
+    agentation: "npm:^3.0.2"
     bcrypt: "npm:^6.0.0"
     dotenv: "npm:^17.2.3"
     eslint: "npm:^9"
