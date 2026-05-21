@@ -29,7 +29,7 @@ exports.config = {
   },
 
   logging: {
-    level: 'trace', // Emit all available log levels (info, error, warn) for maximum verbosity
+    level: 'error', // Emit all available log levels (info, error, warn) for maximum verbosity
   },
   application_logging: {
     enabled: process.env.NEW_RELIC_ENABLED === 'true',
