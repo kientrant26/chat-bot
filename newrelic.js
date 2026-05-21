@@ -32,13 +32,13 @@ exports.config = {
     level: 'trace', // Emit all available log levels (info, error, warn) for maximum verbosity
   },
   application_logging: {
-    enabled: true,
+    enabled: process.env.NEW_RELIC_ENABLED === 'true',
     forwarding: {
-      enabled: true,
+      enabled: process.env.NEW_RELIC_ENABLED === 'true',
       max_samples_stored: 10000,
     },
     metrics: {
-      enabled: true,
+      enabled: process.env.NEW_RELIC_ENABLED === 'true',
     },
     local_decorating: {
       enabled: false,
