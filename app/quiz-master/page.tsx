@@ -1,16 +1,23 @@
-'use client'
-
-import { useRouter } from 'next/navigation'
 import QuizCard from '@/components/quiz-master/QuizCard'
 import { quizzes } from '@/__mock__/quizzes'
+import { Suspense } from 'react'
+
+async function QuizGrid() {
+  // Could fetch from API/database here
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {quizzes.map(quiz => (
+        <QuizCard key={quiz.id} quiz={quiz} />
+      ))}
+    </div>
+  )
+}
+
+function QuizGridSkeleton() {
+  return <div>Loading quizzes...</div>
+}
 
 export default function QuizzesPage() {
-  const router = useRouter()
-
-  const handleOnStart = (url: string) => {
-    router.push(url)
-  }
-
   return (
     <main className="min-h-screen p-8">
       <div className="max-w-6xl mx-auto">
@@ -19,11 +26,10 @@ export default function QuizzesPage() {
           Choose a quiz to test your knowledge
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {quizzes.map(quiz => (
-            <QuizCard key={quiz.id} quiz={quiz} onStart={handleOnStart} />
-          ))}
-        </div>
+        {/* Dynamic content - wrapped in Suspense */}
+        <Suspense fallback={<QuizGridSkeleton />}>
+          <QuizGrid />
+        </Suspense>
       </div>
     </main>
   )
