@@ -1,5 +1,6 @@
 export const siteConfig = {
   isDev: process.env.NODE_ENV === 'development',
+  cronSecret: process.env.CRON_SECRET,
   nextAppUrl: process.env.NEXT_PUBLIC_APP_URL ?? '',
   maxChatRequestPerDay: 50,
   geminiModelName: 'gemini-2.5-flash',
