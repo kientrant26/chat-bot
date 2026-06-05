@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createServerClient } from '@/lib/supabase'
+import { keepAlive } from '@/services/heartBeat'
 import { siteConfig } from '@/constants/siteConfig'
 
 // API to keep Supabase alive via Vercel cron job - vercel.json
@@ -12,13 +12,13 @@ export async function GET(req: NextRequest) {
     }
   }
 
-  const supabase = createServerClient()
+  const result = await keepAlive()
 
-  const { error } = await supabase.from('heart_beat').select('id').limit(1)
-
-  if (error) {
-    console.error(error)
-    return NextResponse.json({ error: error.message }, { status: 500 })
+  if (!result) {
+    return NextResponse.json(
+      { error: 'Failed to keep Supabase alive' },
+      { status: 500 }
+    )
   }
 
   return NextResponse.json({ success: true })
