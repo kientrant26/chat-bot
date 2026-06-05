@@ -16,12 +16,15 @@ export const getQuestions = async (): Promise<QuestionBank[]> => {
     }
 
     const rows = data as DBQuestionRow[]
+    logger.info(`Fetched ${rows.length} questions from the database.`)
+
     const questions =
       rows.map((d: DBQuestionRow) => ({
         ...d.question,
         id: d.id,
       })) || []
 
+    logger.info(`Returning ${questions.length} questions.`)
     return questions
   } catch (error) {
     logger.error('Failed to fetch questions:', error)
