@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { Volume2, ChevronDown, ChevronUp } from 'lucide-react'
 import SectionBadge from './SectionBadge'
 import MCQBody from './MCQBody'
-import { TEST_DATA } from '@/__mock__/english-test'
 import { ListeningTask } from '@/types/english-test'
 
 interface ListeningCardProps {
+  totalListening: number
   task: ListeningTask
   idx: number
   onAnswer: (id: number, selected: number) => void
@@ -13,6 +13,7 @@ interface ListeningCardProps {
 }
 
 export default function ListeningCard({
+  totalListening,
   task,
   idx,
   onAnswer,
@@ -34,7 +35,7 @@ export default function ListeningCard({
 
   return (
     <div className="bg-white rounded-xl p-6 mb-6 shadow-sm border border-gray-200">
-      <SectionBadge>{`II. Listening - Task ${idx + 1}/${TEST_DATA.listeningTasks.length}`}</SectionBadge>
+      <SectionBadge>{`II. Listening - Task ${idx + 1}/${totalListening}`}</SectionBadge>
       <div className="flex items-center gap-3 mb-3">
         <button
           onClick={playAudio}

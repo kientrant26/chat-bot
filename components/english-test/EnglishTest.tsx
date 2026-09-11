@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import MCQCard from './MCQCard'
 import ListeningCard from './ListeningCard'
 import SpeakingCard from './SpeakingCard'
+import ReadingCard from './ReadingCard'
 
 const ALL_MCQS = [...TEST_DATA.grammarQuestions, ...TEST_DATA.listeningTasks]
 const TOTAL_MCQS = ALL_MCQS.length
@@ -122,8 +123,24 @@ export default function EnglishTest() {
                 key={t.id}
                 task={t}
                 idx={idx}
+                totalListening={TEST_DATA.listeningTasks.length}
                 onAnswer={handleAnswer}
                 selected={answers[t.id]}
+              />
+            ))}
+
+            {/* Reading */}
+            <h2 className="text-xl font-bold mb-4 mt-6">
+              Section III: Comprehension - Reading
+            </h2>
+            {TEST_DATA.readingPassages.map((p, idx) => (
+              <ReadingCard
+                key={p.id}
+                passage={p}
+                idx={idx}
+                totalPassages={TEST_DATA.readingPassages.length}
+                onAnswer={handleAnswer}
+                answers={answers}
               />
             ))}
 
